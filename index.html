@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Layanan IKD – Identitas Kependudukan Digital</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fbf8f6;--surf:#fff;--ink:#1d2433;--mute:#5d6577;--line:#e6e0dc;--red:#c8102e;--red-soft:#fde8ec;--navy:#14213d;--ok:#1a7f4b;--ok-soft:#e3f4ea;--no:#b3261e;--no-soft:#fdeceb;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#12151d;--surf:#1b2030;--ink:#eef0f5;--mute:#a4abbd;--line:#2c3348;--red:#ff5a73;--red-soft:#3a1c24;--navy:#0b0f1a;--ok:#5fd193;--ok-soft:#173226;--no:#ff8a80;--no-soft:#3a1f1d}}
+:root[data-theme="dark"]{--bg:#12151d;--surf:#1b2030;--ink:#eef0f5;--mute:#a4abbd;--line:#2c3348;--red:#ff5a73;--red-soft:#3a1c24;--navy:#0b0f1a;--ok:#5fd193;--ok-soft:#173226;--no:#ff8a80;--no-soft:#3a1f1d}
+html{height:100%;scroll-padding-top:calc(env(safe-area-inset-top,0px) + 64px);scroll-behavior:smooth}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 "Plus Jakarta Sans",system-ui,-apple-system,"Segoe UI",sans-serif}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--navy);z-index:30}
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--navy);display:flex;gap:4px;overflow-x:auto;padding:8px 12px}
+nav a{color:#e9ecf4;text-decoration:none;font-weight:500;font-size:14px;padding:8px 14px;border-radius:99px;white-space:nowrap}
+nav a:hover,nav a:focus-visible{background:rgba(255,255,255,.14);outline:none}
+nav b{color:#fff;font-weight:800;padding:8px 12px 8px 4px;white-space:nowrap}
+nav b i{color:var(--red);font-style:normal;filter:brightness(1.3)}
+.wrap{max-width:960px;margin:0 auto;padding:0 20px}
+.hero{background:var(--navy);color:#fff;padding:40px 0 56px}
+.hero .wrap{display:grid;gap:32px;align-items:center}
+@media(min-width:760px){.hero .wrap{grid-template-columns:1.2fr .8fr}}
+h1{font-size:clamp(30px,6vw,48px);line-height:1.1;margin:0 0 14px;font-weight:800;letter-spacing:-.02em}
+.hero p{color:#cdd3e2;max-width:46ch;margin:0 0 22px}
+.btn{display:inline-block;background:var(--red);color:#fff;font-weight:700;text-decoration:none;padding:12px 22px;border-radius:10px}
+.btn.ghost{background:transparent;border:1.5px solid #5b6683;margin-left:8px}
+.btn:focus-visible{outline:3px solid #fff;outline-offset:2px}
+.phone{justify-self:center;width:210px;aspect-ratio:9/17;border-radius:30px;background:#0a0f1c;border:6px solid #2b3550;padding:16px 12px;position:relative}
+.phone::before{content:"";position:absolute;top:8px;left:50%;width:50px;height:5px;margin-left:-25px;border-radius:9px;background:#2b3550}
+.idcard{margin-top:22px;border-radius:14px;background:linear-gradient(135deg,#c8102e,#7a0a1d);padding:14px;color:#fff;font-size:11px}
+.idcard strong{display:block;font-size:13px;margin-bottom:10px}
+.idcard .ln{height:6px;border-radius:3px;background:rgba(255,255,255,.55);margin:6px 0}
+.qr{margin:16px auto 0;width:84px;height:84px;background:#fff;border-radius:8px;padding:6px;display:grid;grid-template-columns:repeat(7,1fr);gap:2px}
+.qr s{background:#14213d;border-radius:1px}.qr s.o{background:#fff}
+section{padding:52px 0}
+section+section{border-top:1px solid var(--line)}
+h2{font-size:clamp(24px,4vw,32px);margin:0 0 8px;letter-spacing:-.01em;line-height:1.2}
+.lead{color:var(--mute);margin:0 0 28px;max-width:60ch}
+.grid{display:grid;gap:16px}
+@media(min-width:700px){.grid.c2{grid-template-columns:1fr 1fr}}
+.box{background:var(--surf);border:1px solid var(--line);border-radius:14px;padding:20px}
+.box h3{margin:0 0 10px;font-size:18px}
+ul.tick{list-style:none;margin:0;padding:0}
+ul.tick li{padding:6px 0 6px 28px;position:relative}
+ul.tick li::before{content:"✓";position:absolute;left:0;color:var(--ok);font-weight:800}
+details{background:var(--surf);border:1px solid var(--line);border-radius:12px;padding:14px 18px;margin-top:10px}
+summary{cursor:pointer;font-weight:700}
+details p{margin:10px 0 0;color:var(--mute)}
+.note{background:var(--red-soft);border-left:4px solid var(--red);padding:12px 16px;border-radius:8px;margin-top:18px;font-size:14px}
+ol.steps{list-style:none;margin:0;padding:0;counter-reset:s}
+ol.steps li{counter-increment:s;position:relative;padding:0 0 26px 58px}
+ol.steps li::before{content:counter(s);position:absolute;left:0;top:0;width:40px;height:40px;border-radius:50%;background:var(--red);color:#fff;font-weight:800;display:grid;place-items:center}
+ol.steps li::after{content:"";position:absolute;left:19px;top:44px;bottom:4px;width:2px;background:var(--line)}
+ol.steps li:last-child::after{display:none}
+ol.steps h3{margin:0 0 4px;font-size:18px}
+ol.steps p{margin:0;color:var(--mute)}
+ol.steps img{display:block;margin-top:12px;width:100%;max-width:280px;height:auto;border-radius:12px;border:1px solid var(--line)}
+.lane{display:grid;gap:10px}
+.flow{display:grid;gap:0}
+.row{display:grid;grid-template-columns:1fr;gap:8px;position:relative}
+@media(min-width:700px){.row{grid-template-columns:1fr 1fr}}
+.cell{border-radius:12px;padding:12px 16px;font-size:15px;border:1px solid var(--line);background:var(--surf)}
+.cell.w{border-left:5px solid var(--red)}.cell.p{border-left:5px solid var(--navy)}
+.cell small{display:block;font-weight:700;color:var(--mute);font-size:12px;margin-bottom:2px}
+.cell.empty{border:0;background:none;display:none}
+@media(min-width:700px){.cell.empty{display:block}}
+.arrow{text-align:center;color:var(--mute);line-height:1.6;margin:2px 0}
+.legend{display:flex;gap:16px;font-size:13px;color:var(--mute);margin-bottom:12px;flex-wrap:wrap}
+.legend span::before{content:"";display:inline-block;width:12px;height:12px;border-radius:3px;margin-right:6px;vertical-align:-1px}
+.legend .lw::before{background:var(--red)}.legend .lp::before{background:var(--navy)}
+footer.site{background:var(--navy);color:#cdd3e2;padding:28px 0;font-size:14px}
+footer.site .wrap{display:grid;gap:6px}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+[hidden]{display:none!important}
+body{overflow-x:clip}
+nav a[aria-current]{background:rgba(255,255,255,.18)}
+.in{animation:slide .28s ease-out}
+@keyframes slide{from{opacity:0;transform:translateX(28px)}to{opacity:1;transform:none}}
+@media(prefers-reduced-motion:reduce){.in{animation:none}}
+ul.cross{list-style:none;margin:0;padding:0}ul.cross li{padding:6px 0 6px 28px;position:relative}ul.cross li::before{content:"✕";position:absolute;left:0;color:var(--no);font-weight:800}
+</style>
+</head>
+<body>
+<nav aria-label="Menu utama">
+<a href="#beranda"><b>IKD<i>.</i></b></a>
+<a href="#informasi">Informasi</a><a href="#panduan">Panduan aktivasi</a><a href="#kendala">Kendala &amp; solusi</a><a href="#keamanan">Keamanan</a>
+</nav>
+
+<header class="hero" id="beranda"><div class="wrap">
+<div>
+<h1>KTP di dalam ponsel Anda, aktif dalam satu kunjungan.</h1>
+<p>Identitas Kependudukan Digital (IKD) adalah KTP-el versi aplikasi. Pelajari syaratnya, ikuti panduan aktivasi, dan temukan solusi untuk kendala yang sering terjadi.</p>
+<a class="btn" href="#panduan">Mulai aktivasi</a><a class="btn ghost" href="#informasi">Cek syarat</a>
+</div>
+<div class="phone" aria-hidden="true">
+<div class="idcard"><strong>Identitas Kependudukan Digital</strong><div class="ln" style="width:80%"></div><div class="ln" style="width:60%"></div><div class="ln" style="width:70%"></div>
+<div class="qr"><s></s><s class="o"></s><s></s><s></s><s class="o"></s><s></s><s></s><s class="o"></s><s></s><s class="o"></s><s></s><s></s><s class="o"></s><s></s><s></s><s class="o"></s><s></s><s></s><s class="o"></s><s></s><s class="o"></s><s></s><s></s><s class="o"></s><s></s><s></s><s></s><s class="o"></s><s></s><s></s><s class="o"></s><s></s><s class="o"></s><s></s><s></s><s class="o"></s><s></s><s></s><s class="o"></s><s></s><s></s><s class="o"></s><s></s><s></s><s></s><s class="o"></s></div></div>
+</div>
+</div></header>
+
+<main>
+<section id="informasi"><div class="wrap">
+<h2>Informasi pelayanan IKD</h2>
+<p class="lead">Apa itu IKD, siapa yang bisa memakainya, dan apa yang perlu disiapkan sebelum datang.</p>
+<div class="grid c2">
+<div class="box"><h3>Yang perlu disiapkan</h3>
+<ul class="tick"><li>KTP-el asli</li><li>Ponsel pintar dengan kamera dan koneksi internet</li><li>Nomor ponsel dan email aktif milik sendiri</li><li>Usia minimal 17 tahun atau sudah menikah</li></ul></div>
+<div class="box"><h3>Informasi kantor layanan</h3>
+<ul class="tick"><li>Lokasi: Disdukcapil Kota Bandar Lampung, Jalan Dokter Susilo No.1A, Sumur Batu, Kec. Teluk Betung Utara, Kota Bandar Lampung, Lampung 35212</li><li>Jam layanan: 08.00 – 16.00</li><li>Biaya: Tanpa dipungut biaya</li><li>Kontak: <a href="https://wa.me/6281272744448" target="_blank" rel="noopener" style="color:var(--red);text-decoration:underline;font-weight:700">Petugas pelayanan IKD</a></li></ul></div>
+</div>
+<details><summary>Apa bedanya IKD dengan KTP-el?</summary><p>IKD memuat data kependudukan yang sama dalam bentuk aplikasi di ponsel. Keduanya berlaku sebagai identitas; IKD memudahkan Anda menunjukkan data tanpa membawa kartu fisik.</p></details>
+<details><summary>Apakah KTP fisik boleh dibuang setelah punya IKD?</summary><p>Tidak. Simpan KTP-el Anda. Tidak semua layanan sudah menerima IKD, dan KTP-el dipakai saat aktivasi.</p></details>
+<details><summary>Bagaimana jika ganti ponsel atau lupa PIN?</summary><p>Aktivasi biasanya terikat pada ponsel tertentu. Datang ke kantor layanan dengan KTP-el untuk aktivasi ulang atau reset PIN.</p></details>
+</div></section>
+
+<section id="panduan"><div class="wrap">
+<h2>Panduan digital aktivasi IKD</h2>
+<p class="lead">Lima langkah dari mengunduh aplikasi sampai IKD aktif.</p>
+<ol class="steps">
+<li><h3>Unduh aplikasi IKD</h3><p>Cari “IKD” atau “Identitas Kependudukan Digital” di Play Store atau App Store. Pastikan penerbitnya Kementerian Dalam Negeri.</p><img src="01.jpg" alt="Langkah 1: unduh aplikasi IKD" loading="lazy" width="280" height="280"></li>
+<li><h3>Daftar dengan data Anda</h3><p>Isi NIK, nomor ponsel, dan email. Masukkan kode verifikasi (OTP) yang dikirim ke ponsel atau email Anda.</p><img src="02.jpg" alt="Langkah 2: daftar dengan data" loading="lazy" width="280" height="280"></li>
+<li><h3>Ambil foto wajah</h3><p>Foto wajah di tempat terang, tanpa masker, kacamata, atau topi. Sistem mencocokkannya dengan data kependudukan.</p><img src="03.jpg" alt="Langkah 3: ambil foto wajah" loading="lazy" width="280" height="280"></li>
+<li><h3>Datang ke kantor layanan</h3><p>Bawa KTP-el dan ponsel. Petugas memverifikasi identitas dan menampilkan kode QR aktivasi.</p><img src="04.jpg" alt="Langkah 4: datang ke kantor layanan" loading="lazy" width="280" height="280"></li>
+<li><h3>Pindai QR dan buat PIN</h3><p>Pindai kode QR dari petugas, lalu buat PIN rahasia. IKD aktif dan siap dipakai.</p><img src="05.jpg" alt="Langkah 5: pindai QR dan buat PIN" loading="lazy" width="280" height="280"></li>
+</ol>
+</div></section>
+
+<section id="kendala"><div class="wrap">
+<h2>Kendala &amp; solusi</h2>
+<p class="lead">Masalah yang paling sering terjadi saat aktivasi dan cara mengatasinya. Tekan judul untuk melihat jawabannya.</p>
+<details><summary>Pesan aktivitas tidak masuk</summary><p>datang ke petugas lapokan masalah yang di alami untuk melakukan aktivitas secara manual</p></details>
+<details><summary>Wajah tidak terbaca</summary><p>Foto di tempat terang, lepas masker, kacamata, dan topi, bersihkan lensa kamera, dan posisikan wajah tepat di dalam bingkai. Jika masih gagal, petugas akan membantu proses verifikasi di kantor.</p></details>
+<details><summary>Lupa PIN</summary><p>Datang ke kantor layanan dengan KTP-el dan ponsel Anda untuk mengatur ulang PIN.</p></details>
+<details><summary>Ganti ponsel</summary><p>IKD terikat pada ponsel yang diaktivasi. Untuk memindahkannya, datang ke kantor layanan dengan KTP-el dan ponsel baru untuk aktivasi ulang.</p></details>
+<details><summary>Aplikasi tidak bisa dibuka atau error</summary><p>Perbarui aplikasi dari Play Store atau App Store, pastikan ruang penyimpanan cukup dan koneksi internet stabil, lalu tutup dan buka kembali aplikasinya.</p></details>
+<details><summary>NIK tidak ditemukan atau data tidak sesuai</summary><p>Datang ke kantor layanan dengan KTP-el dan Kartu Keluarga agar petugas memeriksa data kependudukan Anda.</p></details>
+<div class="note">Masih bermasalah? Hubungi <a href="https://wa.me/6281272744448" target="_blank" rel="noopener" style="color:var(--red);font-weight:700;text-decoration:underline">Petugas pelayanan IKD</a>.</div>
+</div></section>
+
+<section id="keamanan"><div class="wrap">
+<h2>Keamanan IKD</h2>
+<p class="lead">IKD berisi data pribadi Anda. Jaga dengan kebiasaan sederhana berikut.</p>
+<div class="grid c2">
+<div class="box"><h3>Lakukan</h3>
+<ul class="tick"><li>Simpan PIN hanya untuk diri sendiri</li><li>Perbarui aplikasi dari toko resmi</li><li>Aktifkan kunci layar ponsel</li><li>Tunjukkan kode QR hanya kepada petugas yang sah</li></ul></div>
+<div class="box"><h3>Jangan</h3>
+<ul class="cross"><li>Membagikan PIN atau kode OTP kepada siapa pun</li><li>Memotret kode QR IKD lalu mengunggahnya</li><li>Mengunduh aplikasi dari tautan tidak resmi</li><li>Meminjamkan ponsel yang IKD-nya aktif</li></ul></div>
+</div>
+<div class="note">Petugas tidak akan meminta PIN atau kode OTP Anda lewat pesan maupun telepon. Jika merasa PIN sudah diketahui orang lain, segera datang ke kantor layanan untuk mengatur ulang.</div>
+</div></section>
+</main>
+
+<footer class="site"><div class="wrap"><strong>Layanan IKD – Dinas Kependudukan dan Pencatatan Sipil Kota Bandar Lampung</strong><span>Jalan Dokter Susilo No.1A, Sumur Batu, Kec. Teluk Betung Utara, Kota Bandar Lampung 35212 • Jam layanan: 08.00 – 16.00 • Kontak: <a href="https://wa.me/6281272744448" target="_blank" rel="noopener" style="color:#fff;text-decoration:underline">Petugas pelayanan IKD</a></span></div></footer>
+<script>
+(function(){var v=['beranda','informasi','panduan','kendala','keamanan'];
+function show(){var h=(location.hash||'').slice(1);if(v.indexOf(h)<0)h='beranda';
+v.forEach(function(id){var e=document.getElementById(id);e.hidden=id!==h;if(id===h){e.classList.remove('in');void e.offsetWidth;e.classList.add('in');}});
+document.querySelectorAll('nav a').forEach(function(a){if(a.getAttribute('href')==='#'+h)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current');});
+window.scrollTo(0,0);}
+window.addEventListener('hashchange',show);show();})();
+</script>
+</body>
+</html>
